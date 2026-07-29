@@ -2,8 +2,10 @@ from pathlib import Path
 from fastapi import APIRouter,File,HTTPException,UploadFile
 from app.services.pdf_service import (
     extract_text_from_pdf,
-    save_extracted_text
+    save_extracted_text,
+    read_extracted_text
 )
+from app.services.summarization_service import summarize_text
 
 
 router = APIRouter()
@@ -35,7 +37,6 @@ async def upload_document(file: UploadFile = File(...)):
             detail=f"Unable to process PDF: {str(e)}"
         )
 
-
     return{
         "message":"file uploaded successfully",
         "filename":file.filename
@@ -56,4 +57,16 @@ def extract_text(filename:str):
     return {
         "filename":filename,
         "text":text
+    }
+
+@router.get("/summarize/{filename}")
+def summarize_document(filename:str):
+
+    text = read_extracted_text(filename)
+
+    summary = summarize_text(text)
+
+    return {
+        "filename":filename,
+        "summary":summary
     }

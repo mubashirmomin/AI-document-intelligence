@@ -24,3 +24,9 @@ def save_extracted_text(pdf_filename:str,text:str) -> Path:
         file.write(text)
 
     return text_file
+
+def read_extracted_text(filename:str)->str:
+    text_file = Path("extracted_text") / f"{Path(filename).stem}.txt"
+
+    with open (text_file,"r",encoding="utf-8") as file:
+        return file.read()
