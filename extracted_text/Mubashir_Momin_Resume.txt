@@ -1,0 +1,47 @@
+MUBASHIR MOMIN
+Mumbai, Maharashtra  |  +91 8655303062  |  mubashirmomin202520@gmail.com
+github.com/mubashirmomin  |  linkedin.com/in/mubashir-momin-1a9894395
+EDUCATION
+Rizvi College of Engineering
+Dec 2023 -- Dec 2027
+Bachelor of Engineering, Computer Engineering | CGPA: 8.87
+D.G. Ruparel College of Arts, Science and Commerce
+2021 -- 2023
+HSC | Percentage: 67%
+St. Andrews High School
+2021
+SSC | Percentage: 93%
+PROJECTS
+Customer Segmentation & Churn Prediction Dashboardgithub.com/mubashirmomin/customer-segmentation-churn-prediction
+Python, Pandas, Scikit-learn, Streamlit, Plotly
+●Engineered RFM features from retail transaction data to segment customers by engagement levels.
+●Built an ML model to predict customer retention risk using transaction patterns and behavioral metrics.
+●Developed an interactive Streamlit dashboard with segmentation analytics, churn insights, filtering, and downloadable reports.
+●Enabled actionable insights for identifying high-value customers and those at risk of churn.
+Animal Intrusion Detection System
+github.com/mubashirmomin/Animal_Intrusion_Project
+Java, Spring Boot, React, MySQL, ESP32, Roboflow API
+●Developed a real-time animal intrusion detection system combining IoT motion sensing, AI image recognition, and full-stack web 
+technologies.
+●Built RESTful APIs using Spring Boot to handle motion events, image uploads, AI detection requests, and detection history storage.
+●Integrated Roboflow AI models for animal classification with confidence-based filtering to reduce false positives.
+●Automated real-time Telegram notifications with detected animal info, confidence scores, and timestamps.
+House Price Prediction using Machine Learning
+github.com/mubashirmomin/house-price-prediction
+Python, Pandas, NumPy, Scikit-learn, Matplotlib
+●Developed an end-to-end machine learning regression model to predict residential house prices using the Kaggle House Prices 
+dataset containing 80+ features.
+●Performed data preprocessing, exploratory data analysis (EDA), missing value imputation, categorical encoding, and feature 
+engineering to improve model performance.
+●Applied log transformation to the target variable; trained and evaluated a Random Forest Regressor using 5-fold cross-validation; 
+generated prediction files for Kaggle competition submission.
+TECHNICAL SKILLS
+Languages: Python, JavaScript, SQL, HTML5, CSS3
+Data Science: Data Analysis, EDA, Data Cleaning, Statistical Analysis, Data Visualization
+Libraries: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn
+Machine Learning: Supervised Learning, Unsupervised Learning, Model Evaluation, Feature Engineering
+Databases: SQL
+Tools: Git, GitHub, Google Colab, Jupyter Notebook, Conda, VS Code
+Web Technologies: HTML, CSS, JavaScript
+CERTIFICATIONS
+Data Science for Engineers -- NPTEL (IIT Madras)
