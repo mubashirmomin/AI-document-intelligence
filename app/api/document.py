@@ -6,6 +6,7 @@ from app.services.pdf_service import (
     read_extracted_text
 )
 from app.services.summarization_service import summarize_text
+from app.services.translation_service import translate_text
 
 
 router = APIRouter()
@@ -69,4 +70,16 @@ def summarize_document(filename:str):
     return {
         "filename":filename,
         "summary":summary
+    }
+
+@router.get("/translate/{filename}")
+def translate_document(filename:str):
+
+    text = read_extracted_text(filename)
+
+    translated_text = translate_text(text)
+
+    return {
+        "filename":filename,
+        "translated_text":translated_text
     }
