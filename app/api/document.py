@@ -7,6 +7,7 @@ from app.services.pdf_service import (
 )
 from app.services.summarization_service import summarize_text
 from app.services.translation_service import translate_text
+from app.services.qa_services import answer_question
 
 
 router = APIRouter()
@@ -82,4 +83,20 @@ def translate_document(filename:str):
     return {
         "filename":filename,
         "translated_text":translated_text
+    }
+
+@router.get("/ask-question/{filename}")
+def ask_question(filename:str,question:str):
+
+    text = read_extracted_text(filename)
+
+    answer = answer_question(
+        question=question,
+        context=text
+    )
+
+    return {
+        "filename":filename,
+        "question":question,
+        "answer":answer
     }
