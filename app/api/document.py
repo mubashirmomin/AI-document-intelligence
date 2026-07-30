@@ -8,6 +8,7 @@ from app.services.pdf_service import (
 from app.services.summarization_service import summarize_text
 from app.services.translation_service import translate_text
 from app.services.qa_services import answer_question
+from app.services.notes_service import generate_notes
 
 
 router = APIRouter()
@@ -99,4 +100,16 @@ def ask_question(filename:str,question:str):
         "filename":filename,
         "question":question,
         "answer":answer
+    }
+
+@router.get("/generate-notes/{filename}")
+def generate_study_notes(filename:str):
+
+    text = read_extracted_text(filename)
+
+    notes = generate_notes(text)
+
+    return {
+        "filename":filename,
+        "study_notes":notes
     }
