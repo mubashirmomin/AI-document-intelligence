@@ -8,7 +8,16 @@ notes_generator = pipeline(
 def generate_notes(text:str)->str:
 
     prompt = f"""
-Generate clear and well-structured study notes from the following document.
+You are an expert professor.
+
+Read the following document and generate concise study notes.
+
+Rules:
+- Use bullet points.
+- Organize into headings whenever possible.
+- Keep only the important information.
+- Remove unnecessary details.
+- Do not repeat information.
 
 Document:
 {text}

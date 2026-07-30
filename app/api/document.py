@@ -9,6 +9,7 @@ from app.services.summarization_service import summarize_text
 from app.services.translation_service import translate_text
 from app.services.qa_services import answer_question
 from app.services.notes_service import generate_notes
+from app.services.flashcard_service import generate_flashcards
 
 
 router = APIRouter()
@@ -112,4 +113,16 @@ def generate_study_notes(filename:str):
     return {
         "filename":filename,
         "study_notes":notes
+    }
+
+@router.get("/generate-flashcards/{filename}")
+def generate_document_flashcards(filename:str):
+
+    text = read_extracted_text(filename)
+
+    flashcards = generate_flashcards(text)
+
+    return {
+        "filename":filename,
+        "flashcards":flashcards
     }
