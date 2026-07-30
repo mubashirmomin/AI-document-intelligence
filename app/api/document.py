@@ -10,6 +10,7 @@ from app.services.translation_service import translate_text
 from app.services.qa_services import answer_question
 from app.services.notes_service import generate_notes
 from app.services.flashcard_service import generate_flashcards
+from app.services.quiz_service import generate_quiz
 
 
 router = APIRouter()
@@ -125,4 +126,16 @@ def generate_document_flashcards(filename:str):
     return {
         "filename":filename,
         "flashcards":flashcards
+    }
+
+@router.get("/generate-quiz/{filename}")
+def generate_document_quiz(filename:str):
+
+    text = read_extracted_text(filename)
+
+    quiz = generate_quiz(text)
+
+    return{
+        "filename":filename,
+        "quiz":quiz
     }
