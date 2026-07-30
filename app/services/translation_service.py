@@ -1,4 +1,4 @@
-from app.services.model import translator
+from app.services.model import get_translator
 
 def translate_text(text:str):
     translation = translator(

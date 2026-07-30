@@ -1,4 +1,4 @@
-from app.services.model import question_answerer
+from app.services.model import get_question_answerer
 
 def answer_question(question:str,context:str) -> str:
     result = question_answerer(

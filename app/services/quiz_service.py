@@ -1,4 +1,4 @@
-from app.services.model import text_generator
+from app.services.model import get_text_generator
 
 def generate_quiz(text:str)->str:
 

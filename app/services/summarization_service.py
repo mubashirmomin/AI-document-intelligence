@@ -1,4 +1,4 @@
-from app.services.model import summarizer
+from app.services.model import get_summarizer
 
 def summarize_text(text:str):
     summary = summarizer(
