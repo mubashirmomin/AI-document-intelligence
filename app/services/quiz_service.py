@@ -1,9 +1,13 @@
 from app.services.model import get_text_generator
+from app.services.chunking_service import chunk_text
 
 def generate_quiz(text:str)->str:
     text_generator = get_text_generator()
+    chunks = chunk_text(text)
+    quizzes = []
+    for chunk in chunks:
 
-    prompt = f"""
+        prompt = f"""
 You are an expert teacher.
 
 Read the document below and generate exactly 5 multiple-choice questions.
@@ -29,10 +33,11 @@ Answer:
 Document:
 {text}
 """
-    result = text_generator(
-        prompt,
-        max_new_tokens = 400,
-        do_sample = False
-    )
+        result = text_generator(
+            prompt,
+            max_new_tokens = 400,
+            do_sample = False
+        )
+        quizzes.append(result[0]["generated_text"])
 
-    return result[0]["generated_text"]
+    return "\n\n".join(quizzes)

@@ -1,9 +1,13 @@
 from app.services.model import get_text_generator
+from app.services.chunking_service import chunk_text
 
 def generate_flashcards(text:str)->str:
     text_generator = get_text_generator()
+    chunks = chunk_text(text)
+    flashcards = []
 
-    prompt = f"""
+    for chunk in chunks:
+        prompt = f"""
 You are an expert teacher.
 
 Read the document below and create exactly 5 study flashcards.
@@ -24,12 +28,14 @@ Q: ...
 A: ...
 
 Document:
-{text}
+{chunk}
 """
-    result = text_generator(
-        text,
-        max_new_tokens = 300,
-        do_sample=False
-    )
+        result = text_generator(
+            text,
+            max_new_tokens = 300,
+            do_sample=False
+        )
 
-    return result[0]["generated_text"]
+        flashcards.append(result[0]["generated_text"])
+
+    return "\n\n".join(flashcards)
