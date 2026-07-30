@@ -1,9 +1,4 @@
-from transformers import pipeline
-
-flashcard_generator = pipeline(
-    "text2text-generation",
-    model="google/flan-t5-base"
-)
+from app.services.model import text_generator
 
 def generate_flashcards(text:str)->str:
 
@@ -30,7 +25,7 @@ A: ...
 Document:
 {text}
 """
-    result = flashcard_generator(
+    result = text_generator(
         text,
         max_new_tokens = 300,
         do_sample=False

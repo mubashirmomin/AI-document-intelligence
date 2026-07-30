@@ -1,9 +1,4 @@
-from transformers import pipeline
-
-translator = pipeline(
-    "translation",
-    model="Helsinki-NLP/opus-mt-en-fr"
-)
+from app.services.model import translator
 
 def translate_text(text:str):
     translation = translator(

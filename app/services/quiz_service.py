@@ -1,9 +1,4 @@
-from transformers import pipeline
-
-quiz_generator = pipeline(
-    "text2text-generation",
-    model="google/flan-t5-base"
-)
+from app.services.model import text_generator
 
 def generate_quiz(text:str)->str:
 
@@ -33,7 +28,7 @@ Answer:
 Document:
 {text}
 """
-    result = quiz_generator(
+    result = text_generator(
         prompt,
         max_new_tokens = 400,
         do_sample = False

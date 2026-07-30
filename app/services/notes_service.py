@@ -1,9 +1,5 @@
-from transformers import pipeline
+from app.services.model import text_generator
 
-notes_generator = pipeline(
-    "text2text-generation",
-    model="google/flan-t5-base"
-)
 
 def generate_notes(text:str)->str:
 
@@ -22,7 +18,7 @@ Rules:
 Document:
 {text}
 """
-    result = notes_generator(
+    result = text_generator(
         prompt,
         max_new_tokens=300,
         do_sample = False

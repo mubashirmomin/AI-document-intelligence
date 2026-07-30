@@ -1,9 +1,4 @@
-from transformers import pipeline 
-
-summarizer = pipeline(
-    "summarization",
-    model = "facebook/bart-large-cnn"
-)
+from app.services.model import summarizer
 
 def summarize_text(text:str):
     summary = summarizer(
