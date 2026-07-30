@@ -1,6 +1,7 @@
 from app.services.model import get_text_generator
 
 def generate_quiz(text:str)->str:
+    text_generator = get_text_generator()
 
     prompt = f"""
 You are an expert teacher.

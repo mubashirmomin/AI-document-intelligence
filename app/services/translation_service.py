@@ -1,10 +1,9 @@
 from app.services.model import get_translator
 
-def translate_text(text:str):
-    translation = translator(
-    text,
-    truncation=True,
-    max_length=512
-)
+
+def translate_text(text: str):
+    translator = get_translator()
+
+    translation = translator(text)
 
     return translation[0]["translation_text"]

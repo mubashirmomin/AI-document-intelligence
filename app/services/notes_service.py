@@ -2,6 +2,7 @@ from app.services.model import get_text_generator
 
 
 def generate_notes(text:str)->str:
+    text_generator = get_text_generator()
 
     prompt = f"""
 You are an expert professor.
